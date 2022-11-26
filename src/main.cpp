@@ -1,19 +1,17 @@
 /**
- * @file  ManagerListNode.hpp
- * @description Programınızın açıklaması ne yaptığına dair.
- * @course  Dersi aldığınız eğitim türü ve grup
- * @assignment  Kaçıncı ödev olduğu
- * @date  Kodu oluşturduğunuz Tarih
- * @author  Gruptakilerin yazar adları ve mail adresleri
+ * @file  main.cpp
+ * @description Baglı liste kullanarak satır satır okuma ve yazma işlemleri
+ * @course  1.Öğretim A Grubu 
+ * @assignment  1.Ödev
+ * @date   20.11.2022
+ * @author  Merva Banu Duman - Merva.duman@ogr.sakarya.edu.tr
  */
-#include "YoneticiDugumListesi.hpp"
 
+#include "YoneticiDugumListesi.hpp"
 using namespace std;
 
 int main()
 {
-     system("pause");
-
      YoneticiDugumListesi *yoneticiDugumListesi = new YoneticiDugumListesi();
      yoneticiDugumListesi->dosyadanVerileriOkuVeListeyeEkle();
      

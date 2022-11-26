@@ -1,10 +1,10 @@
 /**
- * @file  ManagerListNode.hpp
- * @description Programınızın açıklaması ne yaptığına dair.
- * @course  Dersi aldığınız eğitim türü ve grup
- * @assignment  Kaçıncı ödev olduğu
- * @date  Kodu oluşturduğunuz Tarih
- * @author  Gruptakilerin yazar adları ve mail adresleri
+ * @file  YoneticiDugumListesi.cpp
+ * @description Baglı liste kullanarak satır satır okuma ve yazma işlemleri
+ * @course  1.Öğretim A Grubu 
+ * @assignment  1.Ödev
+ * @date   20.11.2022
+ * @author  Merva Banu Duman - Merva.duman@ogr.sakarya.edu.tr
  */
 
 #include "YoneticiDugumListesi.hpp"
@@ -105,7 +105,7 @@ void YoneticiDugumListesi::siralaKucuktenBuyugeOrtalamayaGore()
 void YoneticiDugumListesi::dosyadanVerileriOkuVeListeyeEkle()
 {
     ifstream dosyaOku;
-    dosyaOku.open("veriler.txt");
+    dosyaOku.open("..\\veriler.txt");
     if (dosyaOku.is_open())
     {
         string okunanSatir;
@@ -179,7 +179,6 @@ void YoneticiDugumListesi::menu()
 
         if (secim == 'd')
         {
-            cout << "d secildi" << endl;
             if (consolSayfaIndexi < maxconsolSayfaIndexi)
             {
                 consolSayfaIndexi++;
@@ -188,7 +187,6 @@ void YoneticiDugumListesi::menu()
         }
         else if (secim == 'a')
         {
-            cout << "a secildi" << endl;
             if (consolSayfaIndexi > 0)
             {
                 consolSayfaIndexi--;
@@ -197,7 +195,6 @@ void YoneticiDugumListesi::menu()
         }
         else if (secim == 'z')
         {
-            cout << "z secildi" << endl;
             if (sayfaSatirIndexi > 0)
             {
                 sayfaSatirIndexi--;
@@ -205,7 +202,6 @@ void YoneticiDugumListesi::menu()
         }
         else if (secim == 'c')
         {
-            cout << "c secildi" << endl;
             if (consolSayfaIndexi == maxconsolSayfaIndexi)
             {
                 if (sayfaSatirIndexi < sonSayfaDugumSayisi - 1)
@@ -223,11 +219,9 @@ void YoneticiDugumListesi::menu()
         }
         else if (secim == 'p')
         {
-            cout << "c secildi" << endl;
         }
         else if (secim == 'k')
         {
-            cout << "c secildi" << endl;
         }
         else
         {
@@ -235,18 +229,48 @@ void YoneticiDugumListesi::menu()
         }
 
         yazdirConsoleYonetici(consolSayfaIndexi, maxconsolSayfaIndexi, sayfaSatirIndexi);
-        cout << "Sayfa : " << consolSayfaIndexi + 1 << "/" << maxconsolSayfaIndexi + 1 << endl;
-        cout << "Son Sayfa Dugum Sayisi : " << sonSayfaDugumSayisi << endl;
+        // cout << "Sayfa : " << consolSayfaIndexi + 1 << "/" << maxconsolSayfaIndexi + 1 << endl;
+        // cout << "Son Sayfa Dugum Sayisi : " << sonSayfaDugumSayisi << endl;
         cout << endl;
     }
 }
 
 void YoneticiDugumListesi::yazdirConsoleYonetici(int consolSayfaIndexi, int maxconsolSayfaIndexi, int sayfaSatirIndexi)
 {
-    cout << "-------------------------------" << endl;
-    cout << "Sayfa satir indexi : " << sayfaSatirIndexi << endl;
     YoneticiDugum *gecici = dugumGetir(consolSayfaIndexi * 8);
     SatirDugum *satirDugumListesi = gecici->getSatirListesi()->getIlk();
+
+    cout << endl;
+
+    if (consolSayfaIndexi == 0 && maxconsolSayfaIndexi == 0)
+    {
+        cout << "   ilk";
+        cout << "                                                                                                                          ";
+        cout << "   son";
+        cout << endl;
+    }
+    else if (consolSayfaIndexi == 0)
+    {
+        cout << "   ilk";
+        cout << "                                                                                                                          ";
+        cout << "-->";
+        cout << endl;
+    }
+    else if (consolSayfaIndexi == maxconsolSayfaIndexi)
+    {
+        cout << "   <--";
+        cout << "                                                                                                                          ";
+        cout << "son";
+        cout << endl;
+    }
+    else
+    {
+        cout << "   <--";
+        cout << "                                                                                                                          ";
+        cout << "-->";
+        cout << endl;
+    }
+    cout << endl;
 
 
     if (maxconsolSayfaIndexi == consolSayfaIndexi)
