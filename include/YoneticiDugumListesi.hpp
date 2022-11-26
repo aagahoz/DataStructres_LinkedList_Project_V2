@@ -10,6 +10,28 @@
 #ifndef YoneticiDugumListesi_hpp
 #define YoneticiDugumListesi_hpp
 
+#include "YoneticiDugum.hpp"
 
+class YoneticiDugumListesi
+{
+public:
+    YoneticiDugumListesi();
+    YoneticiDugumListesi(YoneticiDugum *ilk);
+    ~YoneticiDugumListesi();
+
+    void ekle(YoneticiDugum *yoneticiDugum);
+    void yazdir();
+
+    YoneticiDugum *getIlk();
+    void setIlk(YoneticiDugum *ilk);
+
+    int getDugumSayisi();
+    void setDugumSayisi(int dugumSayisi);
+
+    void siralaKucuktenBuyugeOrtalamayaGore();
+private:
+    YoneticiDugum *ilk;
+    int yoneticiDugumSayisi;
+};
 
 #endif
