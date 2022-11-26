@@ -40,8 +40,8 @@ public:
 
     void menu();
 
-    void yazdirConsole(int consolSayfaIndexi, int maxconsolSayfaIndexi, int sayfaSatirIndexi);
-
+    void yazdirConsoleYonetici(int consolSayfaIndexi, int maxconsolSayfaIndexi, int sayfaSatirIndexi);
+    void yazdirConsoleSatir(SatirDugumListesi *satirListesi, int satirIndexi);
     
     YoneticiDugum *dugumGetir(int index);
 private:

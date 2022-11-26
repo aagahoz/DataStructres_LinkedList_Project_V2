@@ -50,12 +50,14 @@ void YoneticiDugumListesi::yazdir()
 {
     cout << "YoneticiDugumListesi::yazdir()" << endl;
     YoneticiDugum *gecici = this->ilk;
+    int index = 0;
     while (gecici != NULL)
     {
-        cout << "Ortalama : " << gecici->getSatirListesi()->getOrtalama() << "  ";
+        cout << "Ortalama  " << index << " : " << gecici->getSatirListesi()->getOrtalama() << "  ";
         gecici->getSatirListesi()->yazdir();
         cout << endl;
         gecici = gecici->getSonraki();
+        index++;
     }
 }
 
@@ -232,32 +234,29 @@ void YoneticiDugumListesi::menu()
             cout << "Hatali Secim" << endl;
         }
 
-        yazdirConsole(consolSayfaIndexi, maxconsolSayfaIndexi, sayfaSatirIndexi);
+        yazdirConsoleYonetici(consolSayfaIndexi, maxconsolSayfaIndexi, sayfaSatirIndexi);
         cout << "Sayfa : " << consolSayfaIndexi + 1 << "/" << maxconsolSayfaIndexi + 1 << endl;
         cout << "Son Sayfa Dugum Sayisi : " << sonSayfaDugumSayisi << endl;
         cout << endl;
     }
 }
 
-void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSayfaIndexi, int sayfaSatirIndexi)
+void YoneticiDugumListesi::yazdirConsoleYonetici(int consolSayfaIndexi, int maxconsolSayfaIndexi, int sayfaSatirIndexi)
 {
     cout << "-------------------------------" << endl;
     cout << "Sayfa satir indexi : " << sayfaSatirIndexi << endl;
     YoneticiDugum *gecici = dugumGetir(consolSayfaIndexi * 8);
     SatirDugum *satirDugumListesi = gecici->getSatirListesi()->getIlk();
 
-    // cout << gecici->getSatirListesi()->getOrtalama() << endl;
 
     if (maxconsolSayfaIndexi == consolSayfaIndexi)
     {
         int bastirilacakAdet = (this->yoneticiDugumSayisi) % 8;
-        // cout << "Son sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
 
             cout << setw(14) << gecici << setw(3) << "    ";
-            // gecici->getSatirListesi()->yazdir();
             gecici = gecici->getSonraki();
         }
         cout << endl;
@@ -265,12 +264,10 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
     else
     {
         int bastirilacakAdet = 8;
-        // cout << "Orta sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
             cout << setw(14) << gecici << setw(3) << "    ";
-            // gecici->getSatirListesi()->yazdir();
             gecici = gecici->getSonraki();
         }
         cout << endl;
@@ -279,7 +276,6 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
     if (maxconsolSayfaIndexi == consolSayfaIndexi)
     {
         int bastirilacakAdet = (this->yoneticiDugumSayisi) % 8;
-        // cout << "Son sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
@@ -290,7 +286,6 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
     else
     {
         int bastirilacakAdet = 8;
-        // cout << "Orta sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
@@ -303,13 +298,11 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
     if (maxconsolSayfaIndexi == consolSayfaIndexi)
     {
         int bastirilacakAdet = (this->yoneticiDugumSayisi) % 8;
-        // cout << "Son sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
 
-            cout << setw(14) << gecici->getOnceki() << setw(3) << "    ";
-            // gecici->getSatirListesi()->yazdir();
+            cout << setw(6) << "|" << setw(8) << gecici->getOnceki() << "|" << setw(3) << "";
             gecici = gecici->getSonraki();
         }
         cout << endl;
@@ -317,12 +310,10 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
     else
     {
         int bastirilacakAdet = 8;
-        // cout << "Orta sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
-            cout << setw(14) << gecici->getOnceki() << setw(3) << "    ";
-            // gecici->getSatirListesi()->yazdir();
+            cout << setw(6) << "|" << setw(8) << gecici->getOnceki() << "|" << setw(3) << "";
             gecici = gecici->getSonraki();
         }
         cout << endl;
@@ -331,7 +322,6 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
     if (maxconsolSayfaIndexi == consolSayfaIndexi)
     {
         int bastirilacakAdet = (this->yoneticiDugumSayisi) % 8;
-        // cout << "Son sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
@@ -342,7 +332,6 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
     else
     {
         int bastirilacakAdet = 8;
-        // cout << "Orta sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
@@ -355,12 +344,10 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
     if (maxconsolSayfaIndexi == consolSayfaIndexi)
     {
         int bastirilacakAdet = (this->yoneticiDugumSayisi) % 8;
-        // cout << "Son sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
-            cout << setw(14) << gecici->getSatirListesi()->getOrtalama() << setw(3) << "    ";
-            // gecici->getSatirListesi()->yazdir();
+            cout << setw(6) << "|" << setw(8) << gecici->getSatirListesi()->getOrtalama() << "|" << setw(3) << "";
             gecici = gecici->getSonraki();
         }
         cout << endl;
@@ -368,12 +355,10 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
     else
     {
         int bastirilacakAdet = 8;
-        // cout << "Orta sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
-            cout << setw(14) << gecici->getSatirListesi()->getOrtalama() << setw(3) << "    ";
-            // gecici->getSatirListesi()->yazdir();
+            cout << setw(6) << "|" << setw(8) << gecici->getSatirListesi()->getOrtalama() << "|" << setw(3) << "";
             gecici = gecici->getSonraki();
         }
         cout << endl;
@@ -382,7 +367,6 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
     if (maxconsolSayfaIndexi == consolSayfaIndexi)
     {
         int bastirilacakAdet = (this->yoneticiDugumSayisi) % 8;
-        // cout << "Son sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
@@ -393,7 +377,6 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
     else
     {
         int bastirilacakAdet = 8;
-        // cout << "Orta sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
@@ -405,12 +388,10 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
     if (maxconsolSayfaIndexi == consolSayfaIndexi)
     {
         int bastirilacakAdet = (this->yoneticiDugumSayisi) % 8;
-        // cout << "Son sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
-            cout << setw(14) << gecici->getSonraki() << setw(3) << "    ";
-            // gecici->getSatirListesi()->yazdir();
+            cout << setw(6) << "|" << setw(8) << gecici->getSonraki() << "|" << setw(3) << "";
             gecici = gecici->getSonraki();
         }
         cout << endl;
@@ -418,12 +399,10 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
     else
     {
         int bastirilacakAdet = 8;
-        // cout << "Orta sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
-            cout << setw(14) << gecici->getSonraki() << setw(3) << "    ";
-            // gecici->getSatirListesi()->yazdir();
+            cout << setw(6) << "|" << setw(8) << gecici->getSonraki() << "|" << setw(3) << "";
             gecici = gecici->getSonraki();
         }
         cout << endl;
@@ -432,7 +411,6 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
     if (maxconsolSayfaIndexi == consolSayfaIndexi)
     {
         int bastirilacakAdet = (this->yoneticiDugumSayisi) % 8;
-        // cout << "Son sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
@@ -443,7 +421,6 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
     else
     {
         int bastirilacakAdet = 8;
-        // cout << "Orta sayfa : " << bastirilacakAdet << endl;
 
         for (int i = 0; i < bastirilacakAdet; i++)
         {
@@ -452,4 +429,30 @@ void YoneticiDugumListesi::yazdirConsole(int consolSayfaIndexi, int maxconsolSay
         cout << endl;
     }
     cout << endl;
+
+    gecici = dugumGetir(consolSayfaIndexi * 8 + sayfaSatirIndexi);
+
+    SatirDugumListesi *geciciSatirListesi = gecici->getSatirListesi();
+    yazdirConsoleSatir(geciciSatirListesi, sayfaSatirIndexi);
+}
+
+void YoneticiDugumListesi::yazdirConsoleSatir(SatirDugumListesi *satirListesi, int satirIndexi)
+{
+    SatirDugum *gecici = satirListesi->getIlk();
+    // cout << "Satir : " << satirIndexi << endl;
+
+    cout << "     " << setw(satirIndexi * 18) << ""<< "^^^^^^^^^^" << endl;
+    while (gecici != NULL)
+    {
+        cout << endl;
+        cout << "      " << setw(satirIndexi * 18) << ""<< gecici << endl;
+        cout << "     " << setw(satirIndexi * 18) << ""<< "----------" << endl;
+        cout << "     " << setw(satirIndexi * 18) << ""<< "|" << "" << setw(5) << gecici->getVeri() << setw(4) << "|" << endl;
+        cout << "     " << setw(satirIndexi * 18) << ""<< "----------" << endl;
+        cout << "     " << setw(satirIndexi * 18) << ""<< "|" << "" << setw(5) << gecici->getSonraki() << setw(1) << "|" << endl;
+        cout << "     " << setw(satirIndexi * 18) << ""<< "----------" << endl;
+        cout << endl;
+
+        gecici = gecici->getSonraki();
+    }
 }

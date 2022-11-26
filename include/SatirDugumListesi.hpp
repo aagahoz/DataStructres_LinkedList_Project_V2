@@ -17,7 +17,6 @@ public:
 
     void yazdir();
 
-
     SatirDugum *getIlk();
     void setIlk(SatirDugum *ilk);
 
