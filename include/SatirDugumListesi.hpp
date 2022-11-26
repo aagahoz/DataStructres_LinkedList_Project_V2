@@ -31,7 +31,6 @@ public:
     void setOrtalama(float ortalama);
 
     void ortalamaHesaplaVeGuncelle();
-    
 private:
     SatirDugum *ilk;
     int dugumSayisi;

@@ -1,5 +1,3 @@
-hepsi: derle
-
 derle:
 	g++ -I ./include/ -o ./lib/YoneticiDugum.o -c ./src/YoneticiDugum.cpp
 	g++ -I ./include/ -o ./lib/SatirDugum.o -c ./src/SatirDugum.cpp

@@ -13,6 +13,8 @@
 #include "YoneticiDugum.hpp"
 #include <sstream>
 #include <fstream>
+#include <iostream>
+#include <iomanip>
 
 class YoneticiDugumListesi
 {
@@ -33,6 +35,15 @@ public:
     void siralaKucuktenBuyugeOrtalamayaGore();
 
     void dosyadanVerileriOkuVeListeyeEkle();
+
+    friend ostream &operator<<(ostream &out, const YoneticiDugumListesi &ydl);
+
+    void menu();
+
+    void yazdirConsole(int consolSayfaIndexi, int maxconsolSayfaIndexi, int sayfaSatirIndexi);
+
+    
+    YoneticiDugum *dugumGetir(int index);
 private:
     YoneticiDugum *ilk;
     int yoneticiDugumSayisi;
