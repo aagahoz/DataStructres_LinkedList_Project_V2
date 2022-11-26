@@ -11,6 +11,8 @@
 #define YoneticiDugumListesi_hpp
 
 #include "YoneticiDugum.hpp"
+#include <sstream>
+#include <fstream>
 
 class YoneticiDugumListesi
 {
@@ -29,6 +31,8 @@ public:
     void setDugumSayisi(int dugumSayisi);
 
     void siralaKucuktenBuyugeOrtalamayaGore();
+
+    void dosyadanVerileriOkuVeListeyeEkle();
 private:
     YoneticiDugum *ilk;
     int yoneticiDugumSayisi;

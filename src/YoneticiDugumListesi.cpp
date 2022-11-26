@@ -52,6 +52,7 @@ void YoneticiDugumListesi::yazdir()
     YoneticiDugum *gecici = this->ilk;
     while (gecici != NULL)
     {
+        cout << "Ortalama : " << gecici->getSatirListesi()->getOrtalama() << "  ";
         gecici->getSatirListesi()->yazdir();
         cout << endl;
         gecici = gecici->getSonraki();
@@ -78,8 +79,6 @@ void YoneticiDugumListesi::setDugumSayisi(int dugumSayisi)
 
 void YoneticiDugumListesi::siralaKucuktenBuyugeOrtalamayaGore()
 {
-    // use bubble sort
-
     YoneticiDugum *gecici = this->ilk;
 
     while (gecici != NULL)
@@ -99,4 +98,33 @@ void YoneticiDugumListesi::siralaKucuktenBuyugeOrtalamayaGore()
         }
         gecici = gecici->getSonraki();
     }
+}
+
+void YoneticiDugumListesi::dosyadanVerileriOkuVeListeyeEkle()
+{
+    ifstream dosyaOku;
+    dosyaOku.open("veriler.txt");
+    if (dosyaOku.is_open())
+    {
+        string okunanSatir;
+        while(getline(dosyaOku, okunanSatir))
+        {
+            stringstream ss(okunanSatir);
+            string okunanDeger;
+            SatirDugumListesi *satirDugumListesi = new SatirDugumListesi();
+            while(ss >> okunanDeger)
+            {
+                int sayi = atoi(okunanDeger.c_str());
+                SatirDugum *satirDugum = new SatirDugum(sayi);
+                satirDugumListesi->ekle(satirDugum);
+            }           
+            YoneticiDugum *yoneticiDugum = new YoneticiDugum(satirDugumListesi);
+            this->ekle(yoneticiDugum);
+        }
+    }
+    else
+    {
+        cout << "Dosya okunamadi." << endl;
+    }
+    siralaKucuktenBuyugeOrtalamayaGore();
 }

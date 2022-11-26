@@ -39,7 +39,7 @@ void SatirDugumListesi::ekle(SatirDugum *yeni)
 
 void SatirDugumListesi::yazdir()
 {
-    cout << "Yazdiriliyor..." << endl;
+    // cout << "Yazdiriliyor..." << endl;
     SatirDugum *gezici = this->ilk;
     if (gezici == NULL)
     {
@@ -49,7 +49,7 @@ void SatirDugumListesi::yazdir()
     {
         while (gezici != NULL)
         {
-            cout << gezici->getVeri() << endl;
+            cout << gezici->getVeri() << " ";
             gezici = gezici->getSonraki();
         }
     }
